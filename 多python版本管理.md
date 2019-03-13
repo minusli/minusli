@@ -1,5 +1,5 @@
 # 多python版本管理
-#### pyenv
+## pyenv
 - 安装pyenv：`brew install pyenv`
 - 配置rc(.bash_profile or .zshrc)
     ```
@@ -34,7 +34,7 @@
     pyenv local 3.7.2 --unset
     ```
 
-#### virtualenv&virtualenvwrapper
+## virtualenv&virtualenvwrapper
 - 安装：`pip install virtualenv
     - 支持多个python独立环境
 - 安装：`pip install virtualenvwrapper`
@@ -61,7 +61,7 @@
 - 删除虚拟环境：`rmvirtualenv luffy`
 - 退出虚拟环境：`deactive`
 
-#### 联合使用pyenv和virtualenv
+## 联合使用pyenv和virtualenv
 ```
 #确保切换成功，我建议 source .zshrc 一下在切换
 #安装全新的Python2.7.10版本
