@@ -97,33 +97,33 @@
     // error: 456
     ```
 - 理解promise（先前知识：宏任务，微任务，EventLoop）：
-```
-console.log(1);  // 第一个宏任务(script)开始
-
-const f = function () {
-    return new Promise((resolve) => {
-        setTimeout(function () {console.log(2)});  // 添加一个宏任务(setTimeout)
-        console.log(3);  // 同步
-        resolve(4);  // 同步, 把4放到一个地方去，等待then的func来调用
-        console.log(5)  // 同步
-    });
-};
-
-var p = f();
-
-var s = new Date();
-while(new Date() - s < 5000){} // 阻塞5s
-
-p.then(function (res) {console.log(res)});  // 添加微任务(promise.then)
-
-console.log(6);  // 当前宏任务(script)结束
-
-/* 输出 */
-1
-3
-5
-6
-4
-2
-```
+    ```javascript
+    console.log(1);  // 第一个宏任务(script)开始
+    
+    const f = function () {
+        return new Promise((resolve) => {
+            setTimeout(function () {console.log(2)});  // 添加一个宏任务(setTimeout)
+            console.log(3);  // 同步
+            resolve(4);  // 同步, 把4放到一个地方去，等待then的func来调用
+            console.log(5)  // 同步
+        });
+    };
+    
+    var p = f();
+    
+    var s = new Date();
+    while(new Date() - s < 5000){} // 阻塞5s
+    
+    p.then(function (res) {console.log(res)});  // 添加微任务(promise.then)
+    
+    console.log(6);  // 当前宏任务(script)结束
+    
+    /* 输出 */
+    1
+    3
+    5
+    6
+    4
+    2
+    ```
 
