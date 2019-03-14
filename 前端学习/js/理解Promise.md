@@ -10,7 +10,7 @@
         }
     });
     ```
-- 三种状态：pending，fulfilled，rejected
+- 三种状态：pending，fulfilled，rejected（Promise可理解为一个简单的状态机）
     - pending
     - fulfilled
     - rejected
