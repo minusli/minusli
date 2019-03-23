@@ -1,4 +1,4 @@
-# 多python版本管理
+# mac多python版本管理
 ## pyenv
 - 安装pyenv：`brew install pyenv`
 - 配置rc(.bash_profile or .zshrc)
