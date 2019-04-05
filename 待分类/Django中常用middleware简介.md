@@ -1,0 +1,15 @@
+# Django中常用middleware简介.md
+- `django.middleware.security.SecurityMiddleware`
+    -  一些安全设置，比如XSS脚本过滤。
+- `django.contrib.sessions.middleware.SessionMiddleware`
+    - session支持中间件，加入这个中间件，会在数据库中生成一个django_session的表。
+- `django.middleware.common.CommonMiddleware`
+    - 通用中间件，会处理一些URL，比如baidu.com会自动的处理成www.baidu.com。比如/blog/111会处理成/blog/111/自动加上反斜杠。
+- `django.middleware.csrf.CsrfViewMiddleware`
+    - 跨域请求伪造中间件。加入这个中间件，在提交表单的时候会必须加入csrf_token，cookie中也会生成一个名叫csrftoken的值，也会在header中加入一个HTTP_X_CSRFTOKEN的值来放置CSRF攻击。
+- `django.contrib.auth.middleware.AuthenticationMiddleware`
+    - 用户授权中间件。他会在每个HttpRequest对象到达view之前添加当前登录用户的user属性，也就是你可以在view中通过request访问user。
+- `django.contrib.messages.middleware.MessageMiddleware`
+    - 消息中间件。展示一些后台信息给前端页面。如果需要用到消息，还需要在INSTALLED_APPS中添加django.contrib.message才能有效。如果不需要，可以把这两个都删除。
+- `django.middleware.clickjacking.XFrameOptionsMiddleware`
+    - 防止通过浏览器页面跨Frame出现clickjacking（欺骗点击）攻击出现。
