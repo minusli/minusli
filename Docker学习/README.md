@@ -40,7 +40,9 @@
         volumes:
           - ./mysql-data:/var/lib/mysql
     ```
-    
+3. tips: 
+    - 报错：`ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)`
+        - 很有可能是mysql映射路径权限不对，全部加上可读可写，重启mysql即可
 #### ElasticSearch Docker
 1. `docker pull elasticsearch:5.6`
 2. config the docker-compose.yml
