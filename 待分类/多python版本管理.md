@@ -24,6 +24,7 @@
             export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
             export KEEP_BUILD_PATH=true
             ```
+    - 如果安装时一直卡着不动：[pyenv下载python时无响应](https://github.com/wut0719/blog/issues/6)
 - 为新安装的python创建shims: `pyenv rehash`
 - 切换python:
     ```
