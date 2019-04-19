@@ -25,6 +25,16 @@
             export KEEP_BUILD_PATH=true
             ```
     - 如果安装时一直卡着不动：[pyenv下载python时无响应](https://github.com/wut0719/blog/issues/6)
+    - 报错：ERROR: The Python ssl extension was not compiled. Missing the OpenSSL lib?
+        ```shell
+        sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev \
+        libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
+        xz-utils tk-dev libffi-dev liblzma-dev python-openssl git \
+        sudo apt install libedit-dev
+        ```
+        - 如果还是报相同错误，很有可能是本地openssl版本(`openssl version`)不匹配导致的，比如用python3.7.2需要openssl>=1.0.2，我运行上面的命令之后openssl是1.0.1t。
+        - 参考：[how-to-install-python-3-7-0-using-pyenv](https://stackoverflow.com/questions/51838975/how-to-install-python-3-7-0-using-pyenv)
+        
 - 为新安装的python创建shims: `pyenv rehash`
 - 切换python:
     ```
