@@ -43,7 +43,9 @@ if __name__ == "__main__":
 ```
 
 从结果可以看到，mro的顺序是E，C，A，D，B
-代码中在每个类的__init__中都是先调用super.__init__，然后才是打印当前类名，简单说或就是super+print
+
+代码中在每个类的__init__中都是先调用super.__init__，然后才是打印当前类名，简单的说就是super+print
+
 执行顺序：
 1. E() -> E中super+print
 2. E中super：根据mro显示，E的super是C -> C中super+print
