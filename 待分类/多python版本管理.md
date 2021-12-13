@@ -1,4 +1,4 @@
-# mac多python版本管理
+ # mac多python版本管理
 ## pyenv
 - 安装pyenv：`brew install pyenv`
 - 配置rc(.bash_profile or .zshrc)
@@ -46,7 +46,7 @@
     ```
 
 ## virtualenv&virtualenvwrapper
-- 安装：`pip install virtualenv
+- 安装：`pip install virtualenv`
     - 支持多个python独立环境
 - 安装：`pip install virtualenvwrapper`
     - 方便多个python环境之间切换
@@ -94,6 +94,8 @@ pip install virtualenvwrapper
 source .zshrc
 #创建2.7.10的开发环境
 mkvirtualenv py2dev
+#在py2dev环境中安装virtualenvwrapper
+pip install virtualenvwrapper
 
 #创建完某版本的开发环境后务必退出，当前虚拟环境，不然就是虚拟环境中在创建了。
 deactivate
@@ -101,3 +103,5 @@ deactivate
 pyenv local --unset 2.7.10
 source .zshrc
 ```
+
+###### linux系统安装pyenv: `https://my.oschina.net/doctorlzr1988/blog/2998482`
