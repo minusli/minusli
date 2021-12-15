@@ -1,4 +1,4 @@
-# ES脑裂问题.md
+# ES脑裂问题
 - discovery.zen.minimum_master_nodes
     - 默认3s，网络环境不好，可考虑适当调大
 - discovery.zen.ping_timeout
