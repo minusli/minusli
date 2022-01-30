@@ -9,6 +9,11 @@
 3. 节点删除：一定要注意 pre
 4. 双指针操作：fast 和 slow 用法
 
+- 注意事项：
+1. 遍历节点，一定要注意 `cur = cur.next`
+2. 寻找中间节点，循环判断是 `fast and fast.next`
+3. 链表根据 k 分组中，判断 tail 一定是 `step and tail and tail.next`，同时别忘了 `step -= 1; tail = tail.next`
+
 # 节点遍历：
 
 - 顺序遍历
