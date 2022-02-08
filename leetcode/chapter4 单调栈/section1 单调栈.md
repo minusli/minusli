@@ -16,11 +16,7 @@ class MonotoneStack:
         self.stack = []
 
     def push(self, v):
-        if not self.stack:
-            self.stack.append(v)
-            return
-        
-        while self.stack and self.stack[-1] < v:
+        while self.stack and self.stack[-1] <= v:
             self.stack.pop()
         
         self.stack.append(v)
@@ -61,8 +57,14 @@ if __name__ == '__main__':
 
 # 提单
 - [x] 239.滑动窗口最大值
+- [x] 739.每日温度
 
 # 解析
 ### 239.滑动窗口最大值
 > 单调递减栈(栈顶就是最新的值，栈顶 -1 就是最新值前最近的较大的数，栈底就是截止最新值时的整体 max)  
 > 注意每次窗口右异时，需要将 start 和栈底比较，如果相等则 pop 栈底；
+
+### 739.每日温度
+> 单调递减栈
+> 题目要求就是求一个数，右边的第一个较大的值，反转一下，问题转化成求一个数左边最近的较大值，标准的单调递减栈；
+> 该题目不是求值，而是求值对应的下标
