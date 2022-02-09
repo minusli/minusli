@@ -11,49 +11,36 @@
 **解答:**
 ```python
 # 单调栈
-class MonotoneStack:
-    def __init__(self):
-        self.stack = []
-
-    def push(self, v):
-        while self.stack and self.stack[-1] <= v:
-            self.stack.pop()
-        
-        self.stack.append(v)
-
-    def pop(self):        
-        if not self.stack:
-            return
-        return self.stack.pop()
-    
-    def top(self):
-        if not self.stack:
-            return
-        return self.stack[-1]
-    
-    def second(self):
-        if len(self.stack) < 2:
-            return
-        return self.stack[-2]
-
 if __name__ == '__main__':
-    mono = MonotoneStack()
     case = [2,1,2,4,3]
-    results = []
-    for v in case[::-1]:
-        mono.push(v)
-        r = mono.second()
-        results.append(r if r is not None else -1)
-    results = results[::-1]
+
+    stack = []
+    results = [-1 for _ in range(len(case))]
+    for i in range(len(case)):
+        while stack and case[stack[-1]] < case[i]:
+            j = stack.pop()
+            results[j] = case[i]
+        stack.append(i)
+    for i in stack:
+        results[i] = -1
+    print(results)
+        
 ```
 **理解:**  
 ![avatar](../../images/单调栈.png)
-**性质:**
-- 单调递减栈：
-  - 栈顶：最新的值
-  - 栈顶-1：最新值前最近的较大的值
-  - 栈底：截止最新值时的整体 max
-- 单调递增栈：和递减栈相反
+tips：合理的使用哨兵，能有效减少边界的考虑  
+**代码框架:**
+```python
+vals = []
+stack = []
+for i in range(len(vals)):  # i 表示当前值
+    while stack and vals[stack[-1]] < vals[i]:  # 单调减，则 pop
+        j = stack.pop()  # 因为单调减，说明 i 是 j 右侧最近的大值；同时也因为单调减，stack 前驱节点一定是后驱节点左侧最近的大值
+        """
+        一般在这里搞事情；
+        """ 
+    stack.append(i)
+```
 
 # 提单
 - [x] 239.滑动窗口最大值
@@ -77,7 +64,7 @@ if __name__ == '__main__':
 > 对所有 i 求 max 即可
 
 2. 做法 2
-> 单调增栈+哨兵
-> 每次栈 pop，就说明 pre 值到 i 为止(右边延伸)，同时，pop 之后的栈顶，相当于 pre.pre，相当于 pre 到 pre.pre为止（左边延伸）
-> 这样用 pre 的高度 height ，与右边延伸 i 和左边延伸 pre.pre 距离 weight，二者乘积就是 pre 的延伸面积
-> 哨兵的意思是队列两边都添加 0，能避免很多边界的判断
+> 单调增栈+哨兵  
+> 每次栈 pop，就说明 pre 值到 i 为止(右边延伸)，同时，pop 之后的栈顶，相当于 pre.pre，相当于 pre 到 pre.pre为止（左边延伸）  
+> 这样用 pre 的高度 height ，与右边延伸 i 和左边延伸 pre.pre 距离 weight，二者乘积就是 pre 的延伸面积  
+> 哨兵的意思是队列两边都添加 0，能避免很多边界的判断  
