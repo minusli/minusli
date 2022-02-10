@@ -51,6 +51,7 @@ for i in range(len(vals)):  # i 表示当前值
 - [x] 316.去除重复字母
 - [x] 901.股票价格跨度
 - [x] 402.移掉 K 位数字
+- [x] 581.最短无序连续子数组
 
 # 解析
 ### 239.滑动窗口最大值
@@ -89,3 +90,7 @@ for i in range(len(vals)):  # i 表示当前值
 
 ### 402.移掉 K 位数字
 > 单调增栈
+
+### 581.最短无序连续子数组
+> 单调增栈，每次 pop 出来记录 min_i，同时记录 max_value; 每次 i 的小于 max_value，则记录 max_i  
+> 最后返回 max_i - min_i + 1（边界条件是 max < min, return 0）
