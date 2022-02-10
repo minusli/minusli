@@ -76,6 +76,7 @@ class Heap:
 - [x] 378.有序矩阵中第 K 小的元素
 - [x] 973.最接近原点的 K 个点
 - [x] 295.数据流的中位数
+- [x] 1675.数组的最小偏移量
 
 # 解析
 ### 703.数据流中的第 K 大元素
@@ -103,3 +104,8 @@ class Heap:
 ### 295.数据流的中位数
 > 大根堆+小根堆
 > 保持两个对的长度大小，同时每次都保持大根堆 top <= 小根堆 top
+
+### 1675.数组的最小偏移量
+> 大根堆，模拟优化的过程  
+> 具体参考：[解答](https://leetcode-cn.com/problems/minimize-deviation-in-array/solution/si-wei-ti-by-happysnaker-1ds9/)
+
